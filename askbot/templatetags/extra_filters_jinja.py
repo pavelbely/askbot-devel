@@ -35,6 +35,7 @@ from django_countries import settings as countries_settings
 from django_jinja import library as d_j_library
 
 import jinja2
+import markupsafegi
 
 class template:
     @classmethod
@@ -445,7 +446,7 @@ _js_escapes.update(('%c' % z, '\\u%04X' % z) for z in range(32))
 
 @register.filter
 def escapejs(value):
-    return jinja2.Markup("".join(_js_escapes.get(l, l) for l in value))
+    return markupsafe.Markup("".join(_js_escapes.get(l, l) for l in value))
 
 
 # with coffin we also threw out the url filter. in Coffin-0.3.8 there is this
