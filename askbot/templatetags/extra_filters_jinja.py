@@ -35,7 +35,7 @@ from django_countries import settings as countries_settings
 from django_jinja import library as d_j_library
 
 import jinja2
-import markupsafegi
+import markupsafe
 
 class template:
     @classmethod
