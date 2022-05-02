@@ -1,11 +1,11 @@
 <!-- template header.html -->
 {% import "macros.html" as macros %}
-<div 
+<div
     id="header"
     class="{% if settings.SHOW_LOGO %}with-logo{% else %}without-logo{% endif %}"
 >
     <div class="content-wrapper">
-        <div id="userToolsNav">
+        <div id="userToolsNav" class="display-none">
             {% include "widgets/user_navigation.html" %}
             {% if settings.MULTILINGUAL %}
                 {% include "widgets/language_nav.html" %}
@@ -14,7 +14,7 @@
         {% if settings.SHOW_LOGO %}
             {% include "widgets/logo.html" %}
         {% endif %}
-        <div id="metaNav">
+        <div id="metaNav" class="display-none">
             {% include "widgets/meta_nav.html" %}
         </div>
         <div class="clean"></div>
