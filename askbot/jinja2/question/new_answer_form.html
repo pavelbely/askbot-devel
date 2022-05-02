@@ -1,19 +1,4 @@
-<h2>
-    {% if answers %}
-        {{ settings.WORDS_YOUR_ANSWER|escape }}
-    {% else %}
-        {{ settings.WORDS_BE_THE_FIRST_TO_ANSWER_THIS_QUESTION|escape }}
-    {% endif %}
-</h2>
-<p class="message">
-{% if request.user.is_anonymous %}
-    {{ settings.WORDS_INSTRUCTION_TO_POST_ANONYMOUSLY|safe }}
-{% elif request.user==question.author  %}
-    {{ settings.WORDS_INSTRUCTION_TO_ANSWER_OWN_QUESTION|safe }}
-{% endif %}
-    {{ settings.WORDS_INSTRUCTION_TO_GIVE_ANSWER|safe }}
-</p>
-<div class="folded-editor" tabindex="6">
+<div class="folded-editor" id="new-answer" tabindex="6">
     <p class="js-folded-editor-trigger"><a>{{ settings.WORDS_ADD_ANSWER|escape }}</a></p>
     <div class="editor-proper">
         <form id="fmanswer"

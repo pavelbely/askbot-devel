@@ -12,8 +12,17 @@ body {
     font-family: 'mark-pro';
 }
 
+.question-page h1 {
+    font-family: 'mark-pro';
+    font-size: 20px;
+}
+
 #searchBar input.searchInput {
     font-family: 'mark-pro';
+}
+
+.question-page .js-question .post-body {
+    margin-top: 0px;
 }
 
 #searchBar input[type="submit"].searchBtn {
@@ -23,14 +32,33 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    width: 24px;
+    margin-left: 20px;
 }
 
-.header-button {
-    width: 40px;
-    height: 40px;
+.header-button, .ratings-star {
+    width: 24px;
+    height: 24px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.ratings {
+    display: flex;
+    align-items: center;
+}
+
+.ratings-star {
+    height: 16px;
+    width: 16px;
+    background-image: url("../images/star.svg");
+    margin: 0;
+    margin-right: 5px;
+}
+
+.question-page .answer .post-content {
+    border-bottom: 0;
 }
 
 .add-button {
@@ -44,7 +72,11 @@ body {
 #searchBar {
     border: 0;
     border-radius: 10px;
-    width: calc(100vw - 60px - 100px);
+    width: calc(100vw - 60px - 60px);
+}
+
+.question-page .js-question .post-content {
+    //background-color: transparent;
 }
 
 #searchBar input.searchInput {
@@ -54,6 +86,27 @@ body {
     font-size: 16px;
 }
 
+.question-page .js-question .post-body {
+    border-top: 0;
+}
+
+.new-button, button, input[type="reset"], .button, .btn, #add-answer-btn {
+    width: fit-content;
+    margin-left: 0;
+    padding: 5px 10px;
+    border: 1px solid #3E3A37 !important;
+    color: #3E3A37;
+    border-radius: 10px;
+    margin-top: 15px !important;
+    background: none;
+    font-family: 'mark-pro';
+    box-shadow: none;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px !important;
+    height: auto !important;
+}
+
 #header, #ground {
     background-color: #EA7555;
     display: none;
@@ -61,7 +114,7 @@ body {
 
 #secondaryHeader {
     padding: 1vh 20px;
-    padding-top: 30px;
+    padding-top: 15px;
     border: none;
     background-color: transparent;
     height: auto;
@@ -76,7 +129,7 @@ body {
     float: none;
 }
 
-.short-summary {
+.short-summary, .post-content {
     width: 100%;
     float: none;
     background-color: white;
@@ -103,8 +156,41 @@ body {
 
 #searchForm {
     display: flex;
+    align-items: center;
 }
 
 .short-summary .answers {
     display: none;
 }
+
+.vote-buttons {
+    display: none;
+}
+
+.post-update-info-container {
+    display: none;
+}
+
+.post-controls {
+    display: none;
+}
+
+.ordering-forward {
+    display: none;
+}
+
+.question-page #ContentLeft {
+    padding: 0 20px;
+}
+
+.folded-editor a {
+    color: #3E3A37;
+}
+
+.folded-editor {
+    box-shadow: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: #3E3A37;
+}
+

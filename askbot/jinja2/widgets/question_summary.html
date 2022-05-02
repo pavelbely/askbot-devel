@@ -1,5 +1,6 @@
 {% from "macros.html" import user_country_flag, tag_list_widget, timeago, user_primary_group %}
-<div class="test short-summary{% if extra_class %} {{extra_class}}{% endif %}" id="question-{{question.id}}">
+<div class="short-summary{% if extra_class %} {{extra_class}}{% endif %}" id="question-{{question.id}}">
+    {{thread.last_activity_by.username|escape}}
     <div class="counts">
         <div class="views
              {% if thread.view_count == 0 -%}
@@ -56,5 +57,6 @@
         </div>
     </div>
     <h2><a href="{{ question.get_absolute_url(thread=thread) }}">{{thread.get_title()|escape}}</a></h2>
+    <div class="ratings"><div class="ratings-star"></div>4.9</div>
     {{ tag_list_widget(thread.get_tag_names(), search_state=search_state) }}
 </div>
