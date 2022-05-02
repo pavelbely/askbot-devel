@@ -2,6 +2,7 @@
 main url configuration file for the askbot site
 """
 from django.conf import settings
+from django.views.generic import RedirectView
 try:
     from django.conf.urls import handler404
     from django.conf.urls import include, url
@@ -15,6 +16,7 @@ from askbot.views.error import internal_error as handler500
 from django.conf import settings
 from django.contrib import admin
 from django.views import static as StaticViews
+from django.shortcuts import redirect
 import followit.urls
 import tinymce.urls
 
@@ -40,7 +42,8 @@ urlpatterns += [
         r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:],
         StaticViews.serve,
         {'document_root': settings.MEDIA_ROOT.replace('\\','/')},
-    )
+    ),
+    url(r'account/signup/None', RedirectView.as_view(url='/')),
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
