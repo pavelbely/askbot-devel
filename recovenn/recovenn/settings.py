@@ -25,10 +25,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dd0qsi1hmt209h',                      # Or path to database file if using sqlite3.
-        'USER': 'unztzmnskqbxfp',                      # Not used with sqlite3.
-        'PASSWORD': 'b477e759722698a15ec9bd82def066afe02251d0c56ecac84b3cdc7a61599145',                  # Not used with sqlite3.
-        'HOST': 'ec2-34-242-84-130.eu-west-1.compute.amazonaws.com',
+        'NAME': 'postgres',                      # Or path to database file if using sqlite3.
+        'USER': 'postgres',                      # Not used with sqlite3.
+        'PASSWORD': 'postgres',                  # Not used with sqlite3.
+        'HOST': 'localhost',
         'PORT': '5432',
         'TEST': {
             'CHARSET': 'utf8', # Setting the character set and collation to utf-8

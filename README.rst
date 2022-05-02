@@ -1,6 +1,6 @@
 python3 -m venv venv
 
-source venn/bin/activate
+source venv/bin/activate
 
 pip install --upgrade pip
 
