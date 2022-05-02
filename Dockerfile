@@ -21,24 +21,11 @@
 #
 # User uploads are stored in **/askbot_site/askbot/upfiles** . I'd recommend to make it a kubernetes volume.
 
-FROM tiangolo/uwsgi-nginx:python3.6-alpine3.9
+FROM python:3.8-alpine
 
-ARG SITE=askbot-site
-ARG ASKBOT=.
 ENV PYTHONUNBUFFERED 1
-ENV ASKBOT_SITE /${SITE}
 
-ENV UWSGI_INI /${SITE}/askbot_app/uwsgi.ini
-# Not recognized by uwsgi-nginx, yet.
-# The file doesn't exist either!
-#ENV PRE_START_PATH /${SITE}/prestart.sh
-
-# TODO: changing this requires another cache backend
-ENV NGINX_WORKER_PROCESSES 1
-ENV UWSGI_PROCESSES 1
-ENV UWSGI_CHEAPER 0
-
-ADD askbot_requirements.txt /
+ADD askbot_requirements.txt /askbot_requirements.txt
 
 #RUN apt-get update && apt-get -y install cron git \
 RUN apk add --update --no-cache git py3-cffi \
@@ -48,18 +35,15 @@ RUN apk add --update --no-cache git py3-cffi \
         postgresql-dev zlib jpeg libxml2 libxslt postgresql-libs \
     && python -m pip install --upgrade pip \
     && pip install -r /askbot_requirements.txt \
-    && pip install psycopg2
+    && pip install psycopg2 \
+    && pip install 'django-appconf==1.0.3'
 
-ADD $ASKBOT /src
-RUN cd /src/ && python setup.py install \
-    && askbot-setup -n /${SITE} -e 1 -d postgres -u postgres -p askbotPW --db-host=postgres --db-port=5432 --logfile-name=stdout --no-secret-key --create-project container-uwsgi
+RUN pip install unidecode
 
-RUN true \
-    && cp /${SITE}/askbot_app/prestart.sh /app \
-    && /usr/bin/crontab /${SITE}/askbot_app/crontab \
-    && cd /${SITE} && SECRET_KEY=whatever DJANGO_SETTINGS_MODULE=askbot_app.settings python manage.py collectstatic --noinput
+ADD . /application
 
-ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.0/wait /wait
-RUN chmod +x /wait
+RUN cd /application && python setup.py install --single-version-externally-managed --root=/
 
-WORKDIR /${SITE}
+WORKDIR /application/recovenn
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]

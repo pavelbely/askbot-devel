@@ -208,7 +208,7 @@ AUTHENTICATION_BACKENDS = (
 
 #logging settings
 logging.basicConfig(
-    filename='/Users/pavelbely/git/askbot-devel/recovenn/log/askbot_app.log',
+    filename='log/askbot_app.log',
     level=logging.CRITICAL,
     format='%(pathname)s TIME: %(asctime)s MSG: %(filename)s:%(funcName)s:%(lineno)d %(message)s',
 )
