@@ -46,4 +46,4 @@ RUN cd /application && python setup.py install --single-version-externally-manag
 
 WORKDIR /application/recovenn
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:${PORT}"]
