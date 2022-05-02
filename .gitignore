@@ -18,7 +18,7 @@ run
 *.wsgi
 nbproject
 settings_local.py
-settings.py
+# settings.py
 .idea
 .coverage
 *.iml
