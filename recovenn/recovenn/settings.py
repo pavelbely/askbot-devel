@@ -25,10 +25,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd2g62s2f0087kq',                      # Or path to database file if using sqlite3.
-        'USER': 'fqsfdwhozatjrb',                      # Not used with sqlite3.
-        'PASSWORD': 'b92eff4561bfd998600cd28b46de625e3f9ba4e1d7ae87bc08a265f9e5258b21',                  # Not used with sqlite3.
-        'HOST': 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
+        'NAME': 'dd0qsi1hmt209h',                      # Or path to database file if using sqlite3.
+        'USER': 'unztzmnskqbxfp',                      # Not used with sqlite3.
+        'PASSWORD': 'b477e759722698a15ec9bd82def066afe02251d0c56ecac84b3cdc7a61599145',                  # Not used with sqlite3.
+        'HOST': 'ec2-34-242-84-130.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
         'TEST': {
             'CHARSET': 'utf8', # Setting the character set and collation to utf-8
@@ -223,7 +223,7 @@ ASKBOT_URL = '' #no leading slash, default = '' empty string
 ASKBOT_TRANSLATE_URL = True #translate specific URLs
 _ = lambda v:v #fake translation function for the login url
 LOGIN_URL = '/%s%s%s' % (ASKBOT_URL, _('account/'), _('signin/'))
-LOGIN_REDIRECT_URL = ASKBOT_URL #adjust, if needed
+LOGIN_REDIRECT_URL = '/questions' #adjust, if needed
 #note - it is important that upload dir url is NOT translated!!!
 #also, this url must not have the leading slash
 ALLOW_UNICODE_SLUGS = False
