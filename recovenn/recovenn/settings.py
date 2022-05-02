@@ -299,4 +299,6 @@ AVATAR_AUTO_GENERATE_SIZES = (16, 32, 48, 128) #change if avatars are sized diff
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
+MIN_REP_TO_VOTE_UP = 0
+
 None
